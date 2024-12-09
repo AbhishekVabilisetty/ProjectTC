@@ -1,18 +1,22 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, redirect, render_template
 
 app = Flask(__name__)
 
-@app.route('/api/data', methods=['GET'])
+
+@app.route('/hello', methods=['GET'])
 def get_data():
     return jsonify({"message": "Hello from the backend!"})
 
-@app.route('/api/index',methods=['POST'])
-def hw():
-    return "Hello World!!"
 
-@app.route('/api/index',methods=['POST'])
-def Details():
-    pass
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    return render_template('index.html')
+
+
+@app.route("/", methods=['GET'])
+def route():
+    return redirect("/login")
+
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000)
