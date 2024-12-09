@@ -14,7 +14,11 @@ def redirect_home():
     return redirect('/login')
 
 
-@app.route("/", methods=['GET'])(redirect_home)
+@app.route("/", methods=['GET'])
+def home():
+    return redirect_home()
+
+
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
