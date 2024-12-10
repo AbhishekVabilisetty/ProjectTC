@@ -25,12 +25,14 @@ def login():
         data = request.get_json()
         if (verify(data['uid'])):
             # passvalidation should be done here
-            return jsonify({"status": "Email Validation Sucess"})
+            return redirect("/home")
+            # return jsonify({"status": "Email Validation Sucess"})
         else:
             return jsonify({"status": "Email Validation Failed"})
-    return jsonify({"status": "Method is not post"})
+    return jsonify({"status": "Method is not post at login"})
 
-@app.route("/login", methods=['GET', 'POST'])
+
+@app.route("/home", methods=['GET', 'POST'])
 def home_page():
     if request.method == 'POST':
         return jsonify({"status": "Request Method POST from Home Page"})
@@ -38,7 +40,7 @@ def home_page():
         return jsonify({"status": "Request Method GET from Home Page"})
     else:
         return jsonify({"status": "Request Method Not POssible"})
-    
+
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000)
