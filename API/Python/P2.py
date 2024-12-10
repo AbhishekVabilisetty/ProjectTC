@@ -30,6 +30,15 @@ def login():
             return jsonify({"status": "Email Validation Failed"})
     return jsonify({"status": "Method is not post"})
 
+@app.route("/login", methods=['GET', 'POST'])
+def home_page():
+    if request.method == 'POST':
+        return jsonify({"status": "Request Method POST from Home Page"})
+    elif request.method == 'GET':
+        return jsonify({"status": "Request Method GET from Home Page"})
+    else:
+        return jsonify({"status": "Request Method Not POssible"})
+    
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000)
