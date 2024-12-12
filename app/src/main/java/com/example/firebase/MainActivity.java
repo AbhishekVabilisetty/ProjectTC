@@ -6,19 +6,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
+import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -49,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
         else{
-            userdetails.setText(user.getUid());
-            Picasso.get()
+            userdetails.setText(user.getEmail());
+            Glide.with(this)
                     .load(user.getPhotoUrl())
                     .into(prof);
         }

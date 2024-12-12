@@ -46,6 +46,6 @@ dependencies {
     implementation(libs.com.google.firebase.firebase.auth)
     implementation(libs.play.services.auth)
     implementation(platform(libs.firebase.bom))
-    implementation(libs.picasso)
+    implementation (libs.glide)
 
 }
